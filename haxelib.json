@@ -1,0 +1,12 @@
+{
+  "name": "spoon",
+  "url" : "https://github.com/deathbeam/spoon-haxe",
+  "license": "MIT",
+  "tags": ["parser", "parsing",  "cross", "utility"],
+  "description": "Spoon is a programming language that runs blazingly fast, compiles to native code and works everywhere.",
+  "version": "0.1.0",
+  "classPath": "src/",
+  "releasenote": "First release",
+  "contributors": ["deathbeam"],
+  "dependencies": {}
+}
