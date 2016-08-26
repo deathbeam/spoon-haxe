@@ -2,7 +2,7 @@ package test;
 
 import Parsihax.Function;
 import Parsihax.formatError;
-import spoon.Parser;
+import spoon.Grammar;
 
 class Test {
   public static function main() {
@@ -14,7 +14,7 @@ class Test {
       4234
     end';
 
-    printAndParse('Spoon', text, new Parser().build());
+    printAndParse('Spoon', text, Grammar.build());
   }
 
   private static function printAndParse<T>(name : String, input : String, parse : Function<T>) {
