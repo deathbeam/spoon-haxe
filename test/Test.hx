@@ -1,36 +1,36 @@
 package test;
 
-import Parsihax.Function;
-import Parsihax.formatError;
+import buddy.SingleSuite;
+using buddy.Should;
 import spoon.Grammar;
 
-class Test {
-  public static function main() {
-    var text = 'do
-      true
-      false
-      null
-      "Hello"
-      4234
-    end';
+class Test extends SingleSuite {
+  public function new() {
+    describe("Spoon", {
+      var result = false;
+      var parse = Grammar.build();
 
-    printAndParse('Spoon', text, Grammar.build());
-  }
+      beforeEach({
+        result = false;
+      });
 
-  private static function printAndParse<T>(name : String, input : String, parse : Function<T>) {
-    trace('-----------------------------------');
-    trace('Parser input ($name)');
-    trace('-----------------------------------');
-    trace('$input');
-    trace('-----------------------------------');
-    trace('Parser output ($name)');
-    trace('-----------------------------------');
+      describe("Block", {
+        var input = 'do
+          true
+          false
+          null
+          "Hello"
+          4234
+        end';
 
-    var output = parse(input);
+        beforeEach({
+          result = parse(input).status;
+        });
 
-    trace(output.status
-      ? Std.string(output.value)
-      : formatError(output, input)
-    );
+        it('should parse "$input"', {
+          result.should.be(true);
+        });
+      });
+    });
   }
 }

@@ -5,7 +5,7 @@ using Parsihax;
 using spoon.Grammar;
 
 class Grammar {
-  private static function trim(parser : Parser<String>) {
+  private static inline function trim(parser : Parser<String>) {
     return parser.skip(optWhitespace());
   }
 
@@ -41,6 +41,6 @@ class Grammar {
     var PBody : Parser<Dynamic> = [PStatement.many(), PReturnStatement.or([].of())].seq();
     var PBlock : Parser<Dynamic> = PDo.then(PBody).skip(PEnd).or(PStatement);
 
-    return optWhitespace().then(PBlock);
+    return optWhitespace().then(PBlock).parse;
   }
 }

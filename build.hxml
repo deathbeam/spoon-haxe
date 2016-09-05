@@ -1,7 +1,9 @@
 -cp src
 -cp test
 -dce full
+-lib buddy
 -lib parsihax
+-lib tink_syntaxhub
 -main test.Test
 -D dump=pretty
 -neko bin/spoon.n
